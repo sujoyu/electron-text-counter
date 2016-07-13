@@ -5,21 +5,20 @@ html {
 
 body {
 	margin: 0;
-	background-color: #FDE792;
-  margin-bottom: 3em;
-  font-family: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	background-color: #F5F6D4;
+  	margin-bottom: 3em;
+  	font-family: '游ゴシック体', 'Yu Gothic', 'YuGothic', 'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
 header {
-	background-color: #477725;
+	background-color: #493F0B;
 	padding: 0.5em;
 }
 
 footer {
-	background-color: #D1570D;
+	background-color: #493F0B;
 	padding: 1em;
 	bottom: 0;
-	height: 3em;
 	width: 100%;
 	position: absolute;
 }
@@ -37,24 +36,69 @@ footer p {
 
 #contents {
 	margin: 2em 15%;
-	color: #5A1F00;
+	padding-bottom: 2em;
+	color: #493F0B;
 }
 
 #text-field {
 	width: 100%;
-	height: 20em;
-	color: #5A1F00;
-	background-color: #FDEEA4;
+	min-width: 5em;
+	min-height: 2em;
+	color: #493F0B;
+	background-color: #F5F6D4;
 	outline: none;
 	border: none;
-	border-bottom: solid 3px #D1570D;
-	box-shadow:0px 0px 1px 1px rgba(90,31,0,0.37);
-
+	border-bottom: solid 3px #A7C520;
+	box-shadow:0px 0px 1px 1px rgba(167,197,32,0.37);
+	resize: both;
 }
 
 #counter {
 	font-weight: bold;
 	text-align: right;
 	margin-top: 0;
-	color: #477725;
+	color: #A7C520;
+}
+
+#contents button {
+	background-color: #A7C520;
+	color: #fff;
+	border: 1px solid #A7C520;
+	margin: 5px 0;
+	padding: 0.5em 2em;
+	width: 10em;
+	text-align: center;
+	outline: none;
+	display: inline-block;
+}
+
+#contents button:hover {
+	background-color: #D6F279;
+	color: #778C30;
+	border-color: #778C30;
+}
+
+#contents button:active {
+	background-color: #B9D15C;
+	color: #B9D15C;
+	border-color: #B9D15C;
+	transition: all .3s;
+}
+
+#clear {
+	float: right;
+}
+
+#contents button::before,
+#contents button::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+#contents button,
+#contents button::before,
+#contents button::after {
+	box-sizing: border-box;
+	transition: all .3s;
 }

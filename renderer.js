@@ -5,17 +5,46 @@ const fs = require('fs');
 const remote = require('electron').remote;
 const args = remote.getGlobal('processArgv');
 const dialog = remote.dialog;
+const clipboard = remote.clipboard;
 
 let field = document.getElementById("text-field");
 let counter = document.getElementById("counter");
 
-let text = readFile(args[2]);
+console.log(args);
+
+let text;
+const path = args[2];
+if (path) {
+  text = readFile(path);
+}
 
 field.addEventListener("change", onFieldChange, false);
 field.addEventListener("keyup", onFieldChange, false);
+field.addEventListener("click", onFieldChange, false);
+
+field.addEventListener("dragenter", function(e) {
+	//e.preventDefault();
+	onFieldChange();
+}, false);
+// field.addEventListener("dragover", function(e) {
+// 	e.preventDefault();
+// }, false);
+//field.addEventListener("drop", onFieldChange, false);
 
 field.value = text ? text : "";
 onFieldChange();
+
+document.getElementById("paste").addEventListener("click", function(e) {
+  e.preventDefault();
+  field.value = clipboard.readText();
+  onFieldChange();
+});
+
+document.getElementById("clear").addEventListener("click", function(e) {
+  e.preventDefault();
+  field.value = "";
+  onFieldChange();
+});
 
 function readFile(path) {
 	let data;
